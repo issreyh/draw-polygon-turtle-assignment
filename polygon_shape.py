@@ -9,6 +9,8 @@ class Polygon:
         Reject sides < 3, side_length <= 0, and pen_size <= 0.
         """
         # TODO: initialize your object's state and its own turtle.Turtle()
+        if sides < 3:
+            raise ValueError("The length of the side must be positive.")
         if side_length <= 0:
             raise ValueError("The length of the side must be positive.")
         if pen_size <= 0:
@@ -33,7 +35,7 @@ class Polygon:
         self._pen.setheading(0)
         self._pen.pencolor(self._color)
         self._pen.pendown()
-        self._pen.pensize = self._pen_size
+        self._pen.pensize(self._pen_size)
         self._pen.left(self._angle)
         for _ in range(self._sides):
             self._pen.forward(self._sidelength)
